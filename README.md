@@ -1,6 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
-## i-Haraka: Move Everywhere Easily
+
+# i-Haraka: Move Everywhere Easily
 
 
 
