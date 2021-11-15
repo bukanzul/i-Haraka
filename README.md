@@ -1,6 +1,6 @@
 <!-- PROJECT LOGO -->
 <br />
-  <h3>i-Haraka</h3>
+  ## i-Haraka
 
 
 
