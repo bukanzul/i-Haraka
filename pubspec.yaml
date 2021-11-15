@@ -45,7 +45,7 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-assets:
+  assets:
      - assets/
   #   - images/a_dot_ham.jpeg
 
@@ -60,17 +60,20 @@ assets:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+     - family: Lobster
+       fonts:
+         - asset: fonts/Lobster/Lobster-Regular.ttf
+
+     - family: Poppins
+       fonts:
+         - asset: fonts/Poppins/Poppins-Regular.ttf
+         - asset: fonts/Poppins/Poppins-Bold.ttf
+         - asset: fonts/Poppins/Poppins-Italic.ttf
+         - asset: fonts/Poppins/Poppins-Thin.ttf
+
+
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

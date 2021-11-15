@@ -13,9 +13,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        padding: const EdgeInsets.only(top:60, left: 20, right: 20),
-        child: Column(
+      body: ListView(
+        padding: const EdgeInsets.only(top:60, left: 20, right: 20, bottom: 40),
+        children: [
+          Column(
           children: [
             Row(
               children: [
@@ -131,9 +132,89 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             SizedBox(height: 35.0),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    child: Column (
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                    ),
+                    height: 120,
+                    width: 340,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                      BoxShadow(
+                      color: Colors.grey,
+                      spreadRadius: 2,
+                      blurRadius: 8,
+                          ),
+                        ],
+                        color: Colors.white
+                      ),
+
+                    ),
+
+                  ),
+                SizedBox(height: 35.0),
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    child: Column (
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                    ),
+                    height: 120,
+                    width: 340,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                          ),
+                        ],
+                        color: Colors.white
+                    ),
+
+                  ),
+
+                ),
+                SizedBox(height:35.0),
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    child: Column (
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                    ),
+                    height: 120,
+                    width: 340,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                          ),
+                        ],
+                        color: Colors.white
+                    ),
+
+                  ),
+
+                ),
+                ],
+              ),
           ],
           ),
-        ),
-      );
-    }
+        ],
+      ),
+    );
+  }
 }
