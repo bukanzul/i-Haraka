@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "154071271270",
+    "project_id": "iharaka",
+    "storage_bucket": "iharaka.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154071271270:android:be86e1bd81037b75eeaaa7",
+        "android_client_info": {
+          "package_name": "com.example.iharaka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154071271270-3mhl4ni60fo53h7h3tidsqqeg75toivd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgHEPj-qFYMqiEhulap9i_9nYv4TBUJqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154071271270-3mhl4ni60fo53h7h3tidsqqeg75toivd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
