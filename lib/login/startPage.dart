@@ -60,7 +60,7 @@ class StartPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => (LoginPage())));//   );
+              MaterialPageRoute(builder: (context) => (LoginPage())));
             },
             child: Align(
               child: Container(
