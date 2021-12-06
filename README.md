@@ -63,7 +63,7 @@ TBD
 - [x] Create GitHub
 - [x] Complete FYP 1
 - [x] Create the prototype for the project
-- [ ] Build the front-end
+- [x] Build the front-end
 - [ ] Add back-end
 - [ ] Showcase the project
 
