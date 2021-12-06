@@ -98,7 +98,7 @@ class StartPage extends StatelessWidget {
           SizedBox(height: 20),
           InkWell(
             onTap: () {
-
+              Navigator.pushNamed(context, '/signup');
             },
             child: Align(
               child: Container(

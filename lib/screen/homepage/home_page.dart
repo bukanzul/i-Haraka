@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iharaka/services/auth.dart';
 import '../request_ride/request_page.dart';
 import '../join_ride/join_page.dart';
 import '../rideHistory/ride_history.dart';
@@ -12,12 +13,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       body: ListView(
-        padding: const EdgeInsets.only(top:60, left: 20, right: 20, bottom: 60),
+        padding: const EdgeInsets.only(top:50, left: 20, right: 20, bottom: 60),
         children: [
           Column(
           children: [
@@ -37,9 +41,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Expanded(child: Container()),
-                Icon(Icons.account_circle,
-                  size: 28,
-                  color:Colors.black
+                InkWell(
+                  onTap: () async {
+                    await _auth.signOut().then((value) => Navigator.pushNamed(context, '/start'));
+                  },
+                  child: Icon(Icons.account_circle,
+                    size: 28,
+                    color:Colors.black
+                  ),
                 ),
               ],
             ), // Dashboard
@@ -76,7 +85,8 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.green,
                                 ),
                             SizedBox(height: 10),
-                            Text("Offer"),
+                            Text("Offer",
+                            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400)),
                           ],
                         ),
                         height: 120,
@@ -112,7 +122,8 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.blue,
                         ),
                         SizedBox(height: 10),
-                        Text("Join"),
+                        Text("Join",
+                            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400)),
                       ],
                     ),
                     height: 120,

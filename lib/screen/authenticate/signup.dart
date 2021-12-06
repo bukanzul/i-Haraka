@@ -106,7 +106,9 @@ class _SignUpPageState extends State<SignUpPage> {
                               if(_formKey.currentState!.validate()){
                                 dynamic result = await _auth.registerWithEmailAndPassword(email, password);
                                 if(result == null){
-                                  setState(() => error = 'Lmao');
+                                  setState(() => error = 'Not available');
+                                } else {
+                                  Navigator.pushNamed(context, '/confirm');
                                 }
                               }
                             },
@@ -146,7 +148,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
                                 ],
                               )
-                          )
+                          ),
+                          SizedBox(height: 5.0),
+                          Text(error, style: TextStyle(color: Colors.red))
 
                         ],
                       )

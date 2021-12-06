@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:iharaka/models/MyUser.dart';
+import 'package:iharaka/screen/authenticate/confirmation.dart';
 import 'package:iharaka/screen/authenticate/login.dart';
 import 'package:iharaka/screen/authenticate/signup.dart';
 import 'package:iharaka/screen/authenticate/startPage.dart';
+import 'package:iharaka/screen/homepage/home_page.dart';
 import 'package:iharaka/services/auth.dart';
 import 'package:iharaka/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -37,7 +39,10 @@ class MyApp extends StatelessWidget {
           home: Wrapper(),
           routes : {
             '/login': (context) => LoginPage(),
-            '/signup': (context) => SignUpPage()
+            '/signup': (context) => SignUpPage(),
+            '/home': (context) => HomePage(),
+            '/start': (context) => StartPage(),
+            '/confirm': (context) => Confirmation()
           }
       ),
     );

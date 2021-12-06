@@ -13,9 +13,11 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
 
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: size.width * 0.4)
             ),
             Form(
+              key: _formKey,
               child: Container(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -61,7 +64,8 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       height: 55,
                       padding: EdgeInsets.symmetric(horizontal: 30),
-                      child: TextField(
+                      child: TextFormField(
+                        validator: (val) => val!.isEmpty ? 'Please enter valid E-mail': null,
                         onChanged: (val){
                           setState(() => email = val);
                         },
@@ -80,7 +84,8 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       height: 55,
                       padding: EdgeInsets.symmetric(horizontal: 30),
-                      child: TextField(
+                      child: TextFormField(
+                        validator: (val) => val!.length < 6 ? 'Password should have more than 6 characters!': null,
                         obscureText: true,
                         onChanged: (val){
                           setState(() => password = val);
@@ -99,8 +104,14 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 20),
                     InkWell(
                       onTap: () async {
-                        print (email);
-                        print (password);
+                        if(_formKey.currentState!.validate()){
+                          dynamic result = await _auth.signInWithEmailAndPassword(email, password);
+                          if(result == null){
+                            setState(() => error = 'Invalid Email/Password');
+                          } else {
+                            Navigator.pushNamed(context, '/home');
+                          }
+                        }
                       },
                       child: Container(
                         height: 55,
@@ -138,7 +149,9 @@ class _LoginPageState extends State<LoginPage> {
 
                         ],
                       )
-                    )
+                    ),
+                    SizedBox(height: 5.0),
+                    Text(error, style: TextStyle(color: Colors.red))
                   ],
                 )
               ),
