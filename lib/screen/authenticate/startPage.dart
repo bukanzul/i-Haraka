@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../login/login.dart';
-import '../login/signup.dart';
-import '../constant.dart';
+import 'package:iharaka/screen/authenticate/login.dart';
+import 'signup.dart';
+import 'package:iharaka/constant.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);
@@ -58,9 +58,7 @@ class StartPage extends StatelessWidget {
           SizedBox(height: 20),
           InkWell(
             onTap: () {
-              Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => (LoginPage())));
+              Navigator.pushNamed(context, '/login');
             },
             child: Align(
               child: Container(
@@ -100,10 +98,7 @@ class StartPage extends StatelessWidget {
           SizedBox(height: 20),
           InkWell(
             onTap: () {
-              Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => (SignUpPage())),
-                );
+
             },
             child: Align(
               child: Container(

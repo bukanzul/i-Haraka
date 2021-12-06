@@ -1,33 +1,45 @@
 import 'package:flutter/material.dart';
-import 'homepage/home_page.dart';
-// import 'login/splash.dart';
-import 'login/startPage.dart';
+import 'package:iharaka/models/MyUser.dart';
+import 'package:iharaka/screen/authenticate/login.dart';
+import 'package:iharaka/screen/authenticate/signup.dart';
+import 'package:iharaka/screen/authenticate/startPage.dart';
+import 'package:iharaka/services/auth.dart';
+import 'package:iharaka/wrapper.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'constant.dart';
 
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: kBGColor,
-          primaryColor: kPrimaryColor,
-          textTheme: Theme
-              .of(context)
-              .textTheme
-              .apply(bodyColor: kTextColor),
-          fontFamily: 'Poppins',
-        ),
-        initialRoute: '/main',
-        routes: {
-          // '/': (context) => Splash(),
-          '/main': (context) => StartPage(),
-          '/home': (context) => HomePage(),
-        }
+    return StreamProvider<MyUser?>.value(
+      value: AuthService().user,
+      initialData: null,
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            scaffoldBackgroundColor: kBGColor,
+            primaryColor: kPrimaryColor,
+            textTheme: Theme
+                .of(context)
+                .textTheme
+                .apply(bodyColor: kTextColor),
+            fontFamily: 'Poppins',
+          ),
+          home: Wrapper(),
+          routes : {
+            '/login': (context) => LoginPage(),
+            '/signup': (context) => SignUpPage()
+          }
+      ),
     );
   }
 }
