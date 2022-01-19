@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iharaka/services/auth.dart';
-import '../request_ride/request_page.dart';
-import '../join_ride/join_page.dart';
-import '../rideHistory/ride_history.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -70,10 +68,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                   InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Request()
-                        ),);
+                        Navigator.pushNamed(context, '/offerRide');
                       },
                       child: Container(
                         child: Column(
@@ -107,10 +102,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(width: 50,),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Join())
-                    );
+                    Navigator.pushNamed(context, '/joinRide');
                   },
                   child: Container(
                     child: Column(
@@ -161,10 +153,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => History()),
-                    );
+                    Navigator.pushNamed(context, '/history');
                   },
                   child: Container(
                     height: 140,
@@ -245,7 +234,9 @@ class _HomePageState extends State<HomePage> {
                 ), // Bus Schedule
                 SizedBox(height:35.0),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/delivery');
+                  },
                   child: Container(
                     height: 140,
                     width: 340,
@@ -273,7 +264,7 @@ class _HomePageState extends State<HomePage> {
                             height: 30,
                             child: Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text("   Bicycle Station >",
+                                child: Text("   Food Delivery >",
                                     style: TextStyle(
                                       fontSize: 13,
                                       color: Colors.black,

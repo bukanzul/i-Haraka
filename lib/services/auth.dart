@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:iharaka/models/MyUser.dart';
+import 'package:iharaka/models/vendor.dart';
+import 'package:iharaka/services/database.dart';
+import 'package:iharaka/services/delivery.dart';
 
 class AuthService {
 
@@ -34,6 +38,8 @@ class AuthService {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       User? user = result.user ;
+
+      // create document for user with uid
       return _userFromFirebaseUser(user);
 
     } catch(e){
